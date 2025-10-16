@@ -1,0 +1,154 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "navbar navbar"
+        "sidebar main"
+        "footer footer";
+    font-family: 'Lexend', sans-serif;
+    background-color: #F9F1DA;
+    color: #302f2f;
+}
+
+
+nav {
+    grid-area: navbar;
+    position: sticky;
+    top: 0;
+    background-color: #E8667E;
+    padding: 1rem;
+    text-align: center;
+    font-family: 'Slackey', cursive;
+    font-size: 2rem;
+    color: #F9F1DA;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+aside {
+    grid-area: sidebar;
+    background-color: #6BB848;
+    padding: 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: inset -2px 0 6px rgba(0, 0, 0, 0.15);
+}
+
+
+main {
+    grid-area: main;
+    background-color: #FFF8EE;
+    padding: 2rem;
+    color: #E8667E;
+    font-family: 'Fredoka', sans-serif;
+    border-radius: 20px;
+    margin: 1rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+footer {
+    grid-area: footer;
+    background-color: #40A4C8;
+    color: #F9F1DA;
+    text-align: center;
+    padding: 1rem;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+td {
+    padding: 1rem;
+    text-align: center;
+    background-color: #ffffff;
+    color: #302f2f;
+    border: 1px solid #c5c5c5;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+td:hover        {
+    background-color: #E8667E;
+    color: #fff;
+    
+}
+
+td:hover a    { 
+    color: #fff;
+
+    
+}
+
+#a {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+a {
+      color: #fa7e95;
+      font-family: 'Fredoka';
+      text-align: center;
+      list-style: none;
+      font-size: 30px;
+      list-style-type: none;
+      text-decoration: none;
+}
+      
+
+img {
+    border-radius: 15px;
+}
+
+
+
+li {
+      font-family: 'Fredoka';
+      text-align: center;
+      list-style: none;
+      font-size: 30px;
+      text-decoration: none;
+      
+}
+      
+
+
+p {
+    font-size: 35px;
+}
+
+#links a {
+    display: flex;
+    margin-top: 10px;
+    list-style: none;
+    text-decoration: none;
+    color: #302f2f;
+}
+
+::selection {
+    background: #E8667E;
+    color: #fff;
+}

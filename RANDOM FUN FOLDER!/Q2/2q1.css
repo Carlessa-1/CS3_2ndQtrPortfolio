@@ -1,0 +1,64 @@
+table, td {
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 5px;
+    border-color: #3b61df;
+    font-family: lexend;
+    color: #284bbb;
+    background-color: rgb(90, 158, 218);
+
+  }
+
+
+  body {
+    background-color: #fffaeb;
+    padding: 100px;
+    border-radius: 50px;
+  }
+
+  h1 {
+    font-family: 'Lexend';
+    color: #3b61df;
+    font-size: 50px;
+  }
+  img {
+    border-radius: 2px;
+  }
+
+  P {
+    font-family: 'Lexend';
+    color: #3b61df;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  
+  iframe {
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  #tuff {
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: #2748b3;
+  }
+  
+  a:hover {
+    color: #132b7a; /* Tomato color on hover */
+  }
+
+  li {
+    color: #3b61df;
+    font-family: 'Fredoka';
+    text-align: center;
+    list-style: none;
+    font-size: 30px;
+    
+  }
+
+  #rizz {
+    text-align: center;
+  }
