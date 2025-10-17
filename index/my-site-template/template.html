@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Encoding + mobile responsiveness -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Page info -->
+  <title>My Website</title>
+  <meta name="description" content="A simple Grade 9 template with favicon, meta tags, navigation, and footer.">
+  <meta name="author" content="Carlessa Christiana Castaneda">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="template.css">
+  <link rel="icon" type="image/x-icon" href="favicon.jpg">
+
+  <!-- Nav bar-->
+  <nav aria-label="Main navigation">
+    <a class="brand" href="index.html">My Site</a>
+    <ul class="nav-list">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <!-- Future: <li><a href="about.html">About</a></li> -->
+      <!-- Future: <li><a href="projects.html">Projects</a></li> -->
+    </ul>
+  </nav>
+</head>
+<body>
+  <p>whats up skibidi sigmas</p>
+  <footer>
+    <p class="copyright">
+  &copy; <span id="year"></span> Carlessa Christiana. All rights reserved.
+</p>
+
+<script>
+  // Auto-set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+    <li><a href="https://www.instagram.com/jinx_jinx101/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+
+</footer>
+
+</body>
+</html>
