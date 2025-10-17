@@ -3,3 +3,8 @@
 - change front page make it more card like idk
 - add drop down arrow thingy for side index
 - lowk add a song somewhere
+
+IDEAS
+- dress up game
+- audio visualizer
+- song player
