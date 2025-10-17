@@ -5,6 +5,12 @@
 - lowk add a song somewhere
 
 IDEAS
-- dress up game
+- dress up game (yippie)
+    - customize creature color
+    - give alien ear
+    - tutu
+    - item
+    - change bg
+    - save as png
 - audio visualizer
 - song player
