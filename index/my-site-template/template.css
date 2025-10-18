@@ -1,8 +1,82 @@
+/* 🌸 Base Layout */
 body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "navbar"
+        "main"
+        "footer";
     font-family: 'Lexend', sans-serif;
+    background-color: #F9F1DA;
+    color: #302f2f;
     margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
 }
 
+/* 🌺 Navbar */
+nav {
+    grid-area: navbar;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #E8667E;
+    text-align: center;
+    font-family: 'Slackey', cursive;
+    font-size: 1rem;
+    color: #F9F1DA;
+    letter-spacing: 2px;
+    padding: 0.8rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+}
+
+nav:hover {
+    background-color: #db5571;
+}
+
+/* 🌼 Main Content */
+main {
+    grid-area: main;
+    background-color: #FFF8EE;
+    padding: 2rem;
+    color: #E8667E;
+    font-family: 'Fredoka', sans-serif;
+    border-radius: 24px;
+    margin: 2rem auto;
+    max-width: 900px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+main:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+    grid-area: footer;
+    background-color: #40A4C8;
+    color: #F9F1DA;
+    text-align: center;
+    padding: 1rem;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    letter-spacing: 1px;
+    font-size: 15px;
+    box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    font-family: 'Fredoka', sans-serif;
+    text-decoration: none;
+    color: #F9F1DA;
+    font-size: 15px;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+    color: #ffffff;
+    transform: scale(1.2);
+}

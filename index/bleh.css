@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -32,6 +31,7 @@ nav {
     color: #F9F1DA;
     letter-spacing: 2px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
 }
 
 
@@ -44,7 +44,17 @@ aside {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     box-shadow: inset -2px 0 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
 }
+
+aside:hover {
+    background-color: #64ad42;
+}
+
+nav:hover {
+    background-color: #db5571;
+}
+
 
 
 main {
@@ -58,6 +68,24 @@ main {
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
+main a {
+    display: inline-block;
+    transition: transform .2s;
+}
+
+
+main a:hover {
+    transform: scale(1.2);
+}
+
+#red {
+    transition: transform 0.2s ease;
+    display: inline-block; 
+}
+
+#red:hover {
+    transform: scale(1.3);
+}
 
 footer {
     grid-area: footer;
@@ -69,8 +97,12 @@ footer {
     letter-spacing: 1px;
     font-size: 1.1rem;
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
 }
 
+footer:hover {
+    background-color: #3f9bc2;
+}
 
 table {
     width: 100%;
@@ -90,16 +122,16 @@ td {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-td:hover        {
-    background-color: #E8667E;
+td:hover {
+    background-color: #ffbbc8;
     color: #fff;
-    
+
 }
 
-td:hover a    { 
+td:hover a {
     color: #fff;
 
-    
+
 }
 
 #a {
@@ -109,32 +141,27 @@ td:hover a    {
 }
 
 a {
-      color: #fa7e95;
-      font-family: 'Fredoka';
-      text-align: center;
-      list-style: none;
-      font-size: 30px;
-      list-style-type: none;
-      text-decoration: none;
+    color: #fa7e95;
+    font-family: 'Fredoka';
+    text-align: center;
+    list-style: none;
+    font-size: 30px;
+    list-style-type: none;
+    text-decoration: none;
 }
-      
 
 img {
     border-radius: 15px;
 }
 
-
-
 li {
-      font-family: 'Fredoka';
-      text-align: center;
-      list-style: none;
-      font-size: 30px;
-      text-decoration: none;
-      
-}
-      
+    font-family: 'Fredoka';
+    text-align: center;
+    list-style: none;
+    font-size: 30px;
+    text-decoration: none;
 
+}
 
 p {
     font-size: 35px;
@@ -146,9 +173,21 @@ p {
     list-style: none;
     text-decoration: none;
     color: #302f2f;
+    transition: transform .2s;
+}
+
+#links a:hover {
+    transform: scale(1.2);
 }
 
 ::selection {
     background: #E8667E;
     color: #fff;
+}
+
+aside hr {
+    border: none;
+    height: 2px;
+    background-color: #46812a;
+    margin: 1rem 0;
 }
