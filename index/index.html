@@ -105,6 +105,8 @@
     const red = document.getElementById('red');
 
     red.addEventListener('click', () => {
+        const startTime = 0.5;
+        sound.currentTime = startTime;
         audio.play();
     });
 
