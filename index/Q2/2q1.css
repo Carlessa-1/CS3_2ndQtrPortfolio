@@ -23,13 +23,20 @@ table, td {
   }
   img {
     border-radius: 2px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    flex: right;
+    margin: auto auto;
+    display: flex;
+    flex: left  ;
   }
 
   P {
     font-family: 'Lexend';
     color: #3b61df;
     font-size: 20px;
-    line-height: 1.5;
+    line-height: 20px;
+    letter-spacing: 1px;
+  
   }
   
   iframe {
@@ -44,10 +51,12 @@ table, td {
   a {
     text-decoration: none;
     color: #2748b3;
+    transition: transform .2s;
   }
   
   a:hover {
-    color: #132b7a; /* Tomato color on hover */
+    color: #0d2163; 
+    transform: scale(2px);
   }
 
   li {
@@ -61,4 +70,9 @@ table, td {
 
   #rizz {
     text-align: center;
+  }
+
+  #long {
+    float: left;
+  
   }
