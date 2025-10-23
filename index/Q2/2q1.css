@@ -6,6 +6,9 @@ table, td {
     font-family: lexend;
     color: #284bbb;
     background-color: rgb(90, 158, 218);
+    min-width: 300px;
+    table-layout: fixed;
+    flex-wrap: wrap;
   }
 
   header {
