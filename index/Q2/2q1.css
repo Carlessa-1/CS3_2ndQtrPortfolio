@@ -6,9 +6,15 @@ table, td {
     font-family: lexend;
     color: #284bbb;
     background-color: rgb(90, 158, 218);
-
   }
 
+  header {
+    text-align: center;
+    font-family: 'Lexend';
+    color: #3b61df;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
 
   body {
     background-color: #fffaeb;
@@ -21,13 +27,13 @@ table, td {
     color: #3b61df;
     font-size: 50px;
   }
+
   img {
     border-radius: 2px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    flex: right;
-    margin: auto auto;
-    display: flex;
-    flex: left  ;
+    margin-left: 100px;
+    margin-top: 100px;
+
   }
 
   P {
@@ -36,12 +42,15 @@ table, td {
     font-size: 20px;
     line-height: 20px;
     letter-spacing: 1px;
+    text-align: center;
   
   }
   
   iframe {
     border-radius: 20px;
     padding: 10px;
+    margin-top: 80px;
+    margin-left: 90px;
   }
 
   #tuff {
@@ -52,11 +61,12 @@ table, td {
     text-decoration: none;
     color: #2748b3;
     transition: transform .2s;
+    display: inline-block;
   }
   
   a:hover {
     color: #0d2163; 
-    transform: scale(2px);
+    transform: scale(1.2);
   }
 
   li {
@@ -76,3 +86,17 @@ table, td {
     float: left;
   
   }
+
+  hr {
+    border: none;
+    height: 2px;
+    background-color: #1e33a8;
+    margin: 1rem 0;
+  }
+
+  .schedule {
+    display: flex;
+    margin: auto auto;
+    justify-content: center;
+  }
+
