@@ -81,6 +81,7 @@ main a:hover {
 #red {
     transition: transform 0.2s ease;
     display: inline-block; 
+    cursor: pointer;
 }
 
 #red:hover {
@@ -148,10 +149,12 @@ a {
     font-size: 30px;
     list-style-type: none;
     text-decoration: none;
+    cursor: pointer;
 }
 
 img {
     border-radius: 15px;
+
 }
 
 li {
