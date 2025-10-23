@@ -6,9 +6,9 @@ table, td {
     font-family: lexend;
     color: #284bbb;
     background-color: rgb(90, 158, 218);
-    min-width: 300px;
+    min-width: 250px;
     table-layout: fixed;
-    flex-wrap: wrap;
+    margin: 20px 5vh;
   }
 
   header {
@@ -21,8 +21,8 @@ table, td {
 
   body {
     background-color: #fffaeb;
-    padding: 100px;
-    border-radius: 50px;
+    padding: 2vh;
+    border-radius: 20px;
   }
 
   h1 {
@@ -32,10 +32,11 @@ table, td {
   }
 
   img {
-    border-radius: 2px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    margin-left: 100px;
-    margin-top: 100px;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  margin-left: auto;
+  margin-top: 7vh;
 
   }
 
@@ -46,15 +47,31 @@ table, td {
     line-height: 20px;
     letter-spacing: 1px;
     text-align: center;
+    flex-direction: column;
   
   }
   
   iframe {
-    border-radius: 20px;
-    padding: 10px;
-    margin-top: 80px;
-    margin-left: 90px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   }
+
+    .schedule {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* YES I LOVE U FLEX BOX WRAP */
+  }
+
+  img, iframe {
+  display: block;
+  margin: 20px 5vh; /* centers and adds balanced vertical spacing */
+}
+
 
   #tuff {
     text-align: center;
@@ -67,18 +84,30 @@ table, td {
     display: inline-block;
   }
   
-  a:hover {
-    color: #0d2163; 
+  button:hover {
+    background: #0d2163; 
     transform: scale(1.2);
   }
 
-  li {
-    color: #3b61df;
+  button {
     font-family: 'Fredoka';
-    text-align: center;
-    list-style: none;
     font-size: 30px;
-    
+    border-radius: 10px;
+    background:#3671df;
+    color: #ffffff;
+    transition: transform 0.2s, background 0.3s;
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+
+  }
+
+  .buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+
   }
 
   #rizz {
@@ -95,11 +124,5 @@ table, td {
     height: 2px;
     background-color: #1e33a8;
     margin: 1rem 0;
-  }
-
-  .schedule {
-    display: flex;
-    margin: auto auto;
-    justify-content: center;
   }
 
