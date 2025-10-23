@@ -23,6 +23,9 @@ table, td {
     background-color: #fffaeb;
     padding: 2vh;
     border-radius: 20px;
+    transform: scale(0.80);
+    transform-origin: top center;
+
   }
 
   h1 {
