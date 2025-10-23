@@ -6,7 +6,7 @@ table, td {
     font-family: lexend;
     color: #284bbb;
     background-color: rgb(90, 158, 218);
-    min-width: 250px;
+    min-width: 200px;
     table-layout: fixed;
     margin: 20px 5vh;
   }
@@ -35,8 +35,9 @@ table, td {
   display: block;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-  margin-left: auto;
-  margin-top: 7vh;
+  height: auto;
+  width: clamp(200px, 60vw, 600px); /* I LOVE U CLAMPS */
+  
 
   }
 
@@ -54,11 +55,10 @@ table, td {
   iframe {
   border-radius: 20px;
   padding: 10px;
-  margin-top: 5vh;
-  margin-left: auto;
-  margin-right: auto;
   display: block;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+
+  
   }
 
     .schedule {
@@ -97,7 +97,7 @@ table, td {
     color: #ffffff;
     transition: transform 0.2s, background 0.3s;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 10px;
     border: none;
     cursor: pointer;
 
