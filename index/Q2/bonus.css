@@ -34,8 +34,8 @@ div {
       width: 70vh;
       padding: 100px 50px;
       margin-left: 65vh;
-    text-align: center;
-    flex-wrap: nowrap;
+    text-align: center
+
 }
 
 label {
@@ -53,7 +53,8 @@ label {
  #score {
     font-size: 32px;
     color: #ece16f;
-    font-weight: bold;}
+    font-weight: bold;
+}
 
 h1 {
     text-align: center;
