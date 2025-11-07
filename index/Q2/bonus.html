@@ -1,0 +1,101 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+    <!-- Encoding + mobile responsiveness -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Page info -->
+    <title>Type the Letters!</title>
+    <meta name="description" content="A simple typing game for practice.">
+    <meta name="author" content="Carlessa Christiana Castaneda">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="bonus.css">
+    <link rel="icon" type="image/x-icon" href="favicon.jpg">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+    <h1>Carlessa Castaneda, 9-Sodium, SY 2025-2026</h1>
+    <div>
+        <h2 style="text-align: center;">Type the letters!</h2>
+        <br>
+    <label>Score:</label>
+    <p id="score" style="display: inline;">0</p>
+
+        <br>
+
+
+    <label>Letter you have to type:</label>
+    <p id="letter" style="display: inline;"></p>
+    <p id="msg"></p>
+    </div>
+
+    <img src="neon.jpg" alt="Neon" style="display: block; margin: 0 auto; width: 180px; height: auto; border-radius: 10px;">
+  <footer>
+    <p class="copyright">
+      &copy; <span id="year"></span> Carlessa Christiana. All rights reserved.
+    </p>
+
+    <script>
+      // Auto-set current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+    
+
+  </footer>
+
+    <br><br>
+
+    </body>
+
+
+    <script>
+        let score = 0;
+
+        const letters = [
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+        ];
+
+        // Pick a random letter
+        function getRandomLetter() {
+        const index = Math.floor(Math.random() * letters.length);
+        return letters[index];
+        }
+
+        // Display a new random letter
+        function updateLetter() {
+        const letterElement = document.getElementById('letter');
+        letterElement.textContent = getRandomLetter();
+        }
+
+        // Detect key presses
+        document.addEventListener('keydown', function (event) {
+        const currentLetter = document.getElementById('letter').textContent;
+        if (event.key.toUpperCase() === currentLetter) {
+            score++;
+
+            document.getElementById('msg').textContent = " ✅ Correct!";
+
+            document.getElementById('score').textContent = score;
+            updateLetter();
+        }
+
+        else {
+            document.getElementById('msg').textContent = " ❌ Try Again!";}
+        });
+
+        // Initialize first letter
+        updateLetter();
+    </script>
+
+    </html>
