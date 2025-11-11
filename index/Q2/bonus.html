@@ -66,19 +66,19 @@
         'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
         ];
 
-        // Pick a random letter
+        
         function getRandomLetter() {
         const index = Math.floor(Math.random() * letters.length);
         return letters[index];
         }
 
-        // Display a new random letter
+        
         function updateLetter() {
         const letterElement = document.getElementById('letter');
         letterElement.textContent = getRandomLetter();
         }
 
-        // Detect key presses
+        
         document.addEventListener('keydown', function (event) {
         const currentLetter = document.getElementById('letter').textContent;
         if (event.key.toUpperCase() === currentLetter) {
@@ -94,7 +94,7 @@
             document.getElementById('msg').textContent = " ❌ Try Again!";}
         });
 
-        // Initialize first letter
+        
         updateLetter();
     </script>
 
