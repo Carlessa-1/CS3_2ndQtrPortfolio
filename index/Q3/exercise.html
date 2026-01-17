@@ -83,20 +83,22 @@
         
 
         <label>Select your club:
-          <select required id="club" name="Club">
-          <option value="P">Paris X Gen</option>
-          <option value="U">Ubers</option>
-          <option value="M">Manshine City</option>
-          <option value="B">Bastard München</option>
-          <option value="F">FC Barcha</option>
+          <select required id="club" name="Club" onchange="img()">
+          <option value="pxgjpg.jpg">Paris X Gen</option>
+          <option value="ubers.jpg">Ubers</option>
+          <option value="manshine.jpg">Manshine City</option>
+          <option value="bastard.jpg">Bastard München</option>
+          <option value="barcha.jpg">FC Barcha</option>
         </select>
        </label>
+
+       <img id="club-img" src="" style="width: 95%; margin: auto;">
        
         <br>
         <label for="reason">Reason for Joining:
           <br>
         <textarea required  onblur="shake(this)"  id="reason" name="reason" rows="4" cols="50"
-          placeholder="Why do you deserve to be in this Blue Lock Club?"></textarea>
+          placeholder="Why do you deserve to be in this Club?"></textarea>
           </label>
         <br>
       </fieldset>
@@ -124,7 +126,13 @@
     } else {
         input.classList.remove("error");
     }
+  }
+    function img() {
+    const select = document.getElementById('club');
+    const img = document.getElementById('club-img');
+    img.src = select.value;
 }
+
     </script>
 
 
