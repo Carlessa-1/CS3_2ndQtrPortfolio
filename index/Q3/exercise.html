@@ -27,69 +27,89 @@
 </head>
 
 <body>
-    <nav aria-label="Main navigation">
+  <nav aria-label="Main navigation">
     <h1>Carlessa Castaneda, 9-Sodium, SY 2025-2026</h1>
-      
+
   </nav>
   <main>
-    <form id="myForm" method="post" action="submit">
-    <h1>Blue Lock Club Application</h1>
-    <fieldset>
-    <label>Full Name:</label>
-    <input type="text" id="name" placeholder="Full Name">
-    <br>
-    <label>Student ID:</label>
-    <input type="number" id="studentid" placeholder="Student ID">
-    <br>
-    <label>Birthday:</label>
-    <input type="date" id="birthday" placeholder="Birthday">
-    <br>
-    <label>Email:</label>
-    <input type="text" id="email" placeholder="Email">
-    </fieldset>
-    <fieldset>
-    <label>Phone Number:</label>
-    <input type="text" id="phone" placeholder="Phone Number">
-    <br>
-    <label>Grade Level:</label>
-    <select id="grade" name="Grade Level">
-      <option value="7">Grade 7</option>
-      <option value="8">Grade 8</option>
-      <option value="9">Grade 9</option>
-      <option value="10">Grade 10</option>
-      <option value="12">Grade 12</option>
-    </select>
-    <br>
-  <label> Status:</label>
-<br>
+    <form id="myForm" method="post" action="submit" onsubmit="confirm('Are you sure you want to submit?')">
+      <h1>Blue Lock Club Application</h1>
+      <fieldset>
+        <label>Full Name:
+          <input required onblur="shake(this)" type="text" id="name" placeholder="Full Name">
+        </label>
+        <br>
+        <label>Student ID:
+          <input required onblur="shake(this)" type="number" id="studentid" placeholder="Student ID">
+        </label>
+        
+        <br>
+        <label>Birthday:
+          <input required type="date" id="birthday" placeholder="Birthday">
+        </label>
+        
+        <br>
+        <label>Email:
+           <input required onblur="shake(this)" type="text" id="email" placeholder="Email">
+        </label>
+       
+      </fieldset>
+      <fieldset>
+        <label>Phone Number:
+          <input required onblur="shake(this)" type="text" id="phone" placeholder="Phone Number">
+        </label>
+        
+        <br>
+        <label>Grade Level:
+          <select required id="grade" name="Grade Level">
+          <option value="7">Grade 7</option>
+          <option value="8">Grade 8</option>
+          <option value="9">Grade 9</option>
+          <option value="10">Grade 10</option>
+          <option value="12">Grade 12</option>
+        </select>
+        </label>
+        
+        <br>
+        <label> Status:
+          <br>
+        <input name="stats" type="radio" id="extern" value="extern">
+        <label for="extern">Extern</label><br>
+        <input name="stats" type="radio" id="intern" value="intern">
+        <label for="intern">Intern</label><br>
+        </label>
+        <br>
 
-  <input type="radio" id="extern" value="extern">
-  <label for="extern">Extern</label><br>
-  <input type="radio" id="intern" value="intern">
-  <label for="intern">Intern</label><br>
+        
 
-      <label>Select your club: </label>
-    <select id="club" name="Club">
-      <option value="P">Paris X Gen</option>
-      <option value="U">Ubers</option>
-      <option value="M">Manshine City</option>
-      <option value="B">Bastard München</option>
-      <option value="F">FC Barcha</option>
-    </select>
-    <br>
-    <textarea id="reason" name="reason" rows="4" cols="50" placeholder="Why do you deserve to be in this Blue Lock Club?"></textarea>
-
-    <br>
-    </fieldset>
-    <button type="submit">Submit</button>
-    <button>Clear</button>
-
-    </form> 
+        <label>Select your club:
+          <select required id="club" name="Club">
+          <option value="P">Paris X Gen</option>
+          <option value="U">Ubers</option>
+          <option value="M">Manshine City</option>
+          <option value="B">Bastard München</option>
+          <option value="F">FC Barcha</option>
+        </select>
+       </label>
+       
+        <br>
+        <label for="reason">Reason for Joining:
+          <br>
+        <textarea required  onblur="shake(this)"  id="reason" name="reason" rows="4" cols="50"
+          placeholder="Why do you deserve to be in this Blue Lock Club?"></textarea>
+          </label>
+        <br>
+      </fieldset>
+      <div class="buttons">
+      <button type="submit">Submit</button>
+      <button>Clear</button>
+</div>
+    </form>
   </main>
-<!-- LIST OF IDS, form, name, studentid, birthday, phone, grade, extern, intern -->
+  <!-- LIST OF IDS, form, name, studentid, birthday, phone, grade, extern, intern -->
   <footer>
 
-    <li><a href="index.html" aria-current="page">Home!</a></li>
+    <li><a href="index.html" aria-current="page" id="fix">Home!</a></li>
     <p class="copyright">
       &copy; <span id="year"></span> Carlessa Christiana. All rights reserved.
     </p>
@@ -97,9 +117,17 @@
     <script>
       // Auto-set current year
       document.getElementById('year').textContent = new Date().getFullYear();
+
+     function shake(input) {
+    if (input.value.trim() == "") {
+        input.classList.add("error");
+    } else {
+        input.classList.remove("error");
+    }
+}
     </script>
 
-    
+
 
   </footer>
 
