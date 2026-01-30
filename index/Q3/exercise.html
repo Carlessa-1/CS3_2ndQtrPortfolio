@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Encoding + mobile responsiveness -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blue Lock Club Application</title>
+  <link rel="stylesheet" href="exercise.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.jpg">
 
-  <!-- Page info -->
-  <title>My Website</title>
-  <meta name="description" content="A simple Grade 9 template with favicon, meta tags, navigation, and footer.">
-  <meta name="author" content="Carlessa Christiana Castaneda">
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="exercise.css">
-  <link rel="icon" type="image/x-icon" href="favicon.jpg">
-
-  <!-- Nav bar-->
-
-
-  <!-- Fonts -->
+      <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
@@ -27,158 +16,137 @@
 </head>
 
 <body>
-  <nav aria-label="Main navigation">
-    <h1>Carlessa Castaneda, 9-Sodium, SY 2025-2026</h1>
-    <li><a href="exercise2.html">Submissions</a></li>
+  <nav>
+    <h1>Carlessa Castaneda, 9-Sodium</h1>
+    <a href="exercise2.html">Submissions</a>
   </nav>
+
   <main>
-    <form id="myForm" method="post" action="submit" onsubmit="confirm('Are you sure you want to submit?')">
-      <h1>Blue Lock Club Application</h1>
-      <fieldset>
-        <label>Full Name:
-          <input required onblur="shake(this)" type="text" id="name" placeholder="Full Name">
-        </label>
-        <br>
-        <label>Student ID:
-          <input required onblur="shake(this)" type="number" id="studentid" placeholder="Student ID">
-        </label>
+    <form id="myForm">
+      <h2>Blue Lock Club Application</h2>
+<fieldset>
+      <label>Full Name:
+        <input required type="text" id="fname">
+      </label><br>
 
-        <br>
-        <label>Birthday:
-          <input required type="date" id="birthday" placeholder="Birthday">
-        </label>
+      <label>Student ID:
+        <input required type="number" id="studentid">
+      </label><br>
 
-        <br>
-        <label>Email:
-          <input required onblur="shake(this)" type="text" id="email" placeholder="Email">
-        </label>
+      <label>Birthday:
+        <input required type="date" id="birthday">
+      </label><br>
 
-      </fieldset>
-      <fieldset>
-        <label>Phone Number:
-          <input required onblur="shake(this)" type="text" id="phone" placeholder="Phone Number">
-        </label>
+      <label>Email:
+        <input required type="email" id="email">
+      </label><br>
+    </fieldset>
 
-        <br>
-        <label>Grade Level:
-          <select required id="grade" name="Grade Level">
-            <option value="7">Grade 7</option>
-            <option value="8">Grade 8</option>
-            <option value="9">Grade 9</option>
-            <option value="10">Grade 10</option>
-            <option value="12">Grade 12</option>
-          </select>
-        </label>
+    <fieldset>
 
-        <br>
-        <label> Status:
-          <br>
-          <input name="stats" type="radio" id="extern" value="extern">
-          <label for="extern">Extern</label><br>
-          <input name="stats" type="radio" id="intern" value="intern">
-          <label for="intern">Intern</label><br>
-        </label>
-        <br>
+      <label>Phone:
+        <input required type="text" id="phone">
+      </label><br>
 
+      <label>Grade:
+        <select id="grade" required>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+      </label><br>
 
+      Status:<br>
+      <input type="radio" name="stats" value="extern" required> Extern
+      <input type="radio" name="stats" value="intern"> Intern
+      <br><br>
 
-        <label>Select your club:
-          <select required id="club" name="Club" onchange="img()">
-            <option value="pxgjpg.jpg">Paris X Gen</option>
-            <option value="ubers.jpg">Ubers</option>
-            <option value="manshine.jpg">Manshine City</option>
-            <option value="bastard.jpg">Bastard München</option>
-            <option value="barcha.jpg">FC Barcha</option>
-          </select>
-        </label>
+      <label>Club:
+        <select id="club" onchange="showImg()" required>
+          <option value="pxgjpg.jpg">Paris X Gen</option>
+          <option value="ubers.jpg">Ubers</option>
+          <option value="manshine.jpg">Manshine</option>
+          <option value="bastard.jpg">Bastard München</option>
+          <option value="barcha.jpg">FC Barcha</option>
+        </select>
+      </label><br>
 
-        <img id="club-img" src="" style="width: 95%; margin: auto;">
+      <img id="club-img" style="width:700px;"><br>
 
-        <br>
-        <label for="reason">Reason for Joining:
-          <br>
-          <textarea required onblur="shake(this)" id="reason" name="reason" rows="4" cols="50"
-            placeholder="Why do you deserve to be in this Club?"></textarea>
-        </label>
-        <br>
-      </fieldset>
-      <div class="buttons">
-        <button type="submit" id="submit">Submit</button>
-        <button id="clear">Clear</button>
-      </div>
+      <label>Reason:
+        <textarea id="reason" required></textarea>
+      </label><br>
+</fieldset>
+      <button type="submit">Submit</button>
+      <button type="button" id="clear">Clear</button>
     </form>
   </main>
-  <!-- LIST OF IDS, form, name, studentid, birthday, phone, grade, extern, intern, submit, clear -->
   <footer>
 
-    <li><a href="index.html" aria-current="page" id="fix">Home!</a></li>
+    <li style="text-decoration: none;"><a style="text-decoration: none;" href="index.html" aria-current="page" id="fix">Home!</a></li>
     <p class="copyright">
       &copy; <span id="year"></span> Carlessa Christiana. All rights reserved.
     </p>
-
-    <script>
-      // Auto-set current year
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      function shake(input) {
-        if (input.value.trim() == "") {
-          input.classList.add("error");
-        } else {
-          input.classList.remove("error");
-        }
-      }
-      function img() {
-        const select = document.getElementById('club');
-        const img = document.getElementById('club-img');
-        img.src = select.value;
-      }
-
-      const clearButton = document.getElementById('clear');
-      clearButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        document.getElementById('myForm').reset();
-        document.getElementById('club-img').src = '';
-      });
-
-      var CLUB = localStorage.setItem('Club', document.getElementById('club').value);
-      var NAME = localStorage.setItem('Name', document.getElementById('name').value);
-      var ID = localStorage.setItem('StudentID', document.getElementById('studentid').value);
-      var BDAY = localStorage.setItem('Birthday', document.getElementById('birthday').value);
-      var EMAIL = localStorage.setItem('Email', document.getElementById('email').value);
-      var PHONE = localStorage.setItem('Phone', document.getElementById('phone').value);
-      var GRADE = localStorage.setItem('Grade', document.getElementById('grade').value);
-      var REASON = localStorage.setItem('Reason', document.getElementById('reason').value);
-      var STATUS = localStorage.setItem('Status', document.querySelector('input[name="stats"]:checked').value);
-
-      const form = document.getElementById('myForm');
-      form.addEventListener('submit', function (event) {
-        if (!confirm('Are you sure you want to submit?')) {
-          event.preventDefault();
-          return;
-        }
-
-        const data = {
-          name: document.getElementById('name').value,
-          studentid: document.getElementById('studentid').value,
-          birthday: document.getElementById('birthday').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          grade: document.getElementById('grade').value,
-          status: document.querySelector('input[name="stats"]:checked')?.value,
-          club: document.getElementById('club').value,
-          reason: document.getElementById('reason').value
-        };
-
-        localStorage.setItem("application", JSON.stringify(data));
-      });
-
-
-    </script>
-
-
-
   </footer>
 
-</body>
+<script>
+const club = document.getElementById("club");
+const clubImg = document.getElementById("club-img");
+const myForm = document.getElementById("myForm");
+const clearBtn = document.getElementById("clear");
 
+function showImg() {
+  clubImg.src = club.value;
+}
+
+clearBtn.onclick = () => {
+  myForm.reset();
+  clubImg.src = "";
+};
+
+const inputs = document.querySelectorAll("input, textarea, select");
+
+inputs.forEach(input => {
+  input.addEventListener("blur", () => {
+    if (!input.checkValidity()) {
+      input.classList.add("error");
+
+      // remove shake so it can play again next time
+      setTimeout(() => input.classList.remove("error"), 500);
+    }
+  });
+});
+
+
+myForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  if (!confirm("Submit application?")) return;
+
+  const data = {
+    name: fname.value,
+    studentid: studentid.value,
+    birthday: birthday.value,
+    email: email.value,
+    phone: phone.value,
+    grade: grade.value,
+    status: document.querySelector('input[name="stats"]:checked')?.value,
+    club: club.value,
+    reason: reason.value
+  };
+
+  let applications = JSON.parse(localStorage.getItem("applications")) || [];
+  applications.push(data);
+  localStorage.setItem("applications", JSON.stringify(applications));
+
+  alert("Application sent.");
+  myForm.reset();
+  clubImg.src = "";
+});
+</script>
+
+</body>
 </html>

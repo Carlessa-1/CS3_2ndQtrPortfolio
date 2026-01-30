@@ -1,44 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Applications</title>
-    <link rel="stylesheet" href="exercise2.css">    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Club Applications</title>
+  <link rel="stylesheet" href="exercise2.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.jpg">
+
+      <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Slackey&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+
 </head>
-<body>
-    <button onclick="window.location.href='exercise.html'"> Back to Signup</button>
-    <br>
+  <nav>
+    <h1>Carlessa Castaneda, 9-Sodium</h1>
+    <a href="exercise.html">Signups</a>
+  </nav>
+<main>
 
-        <label>Select your club:
+ 
 
-                <br>
-          <select required id="club" name="Club" onchange="img()">
-            <option value="pxgjpg.jpg">Paris X Gen</option>
-            <option value="ubers.jpg">Ubers</option>
-            <option value="manshine.jpg">Manshine City</option>
-            <option value="bastard.jpg">Bastard München</option>
-            <option value="barcha.jpg">FC Barcha</option>
-          </select>
-        </label>
-    
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Id</th>
-                    <th>Birthday</th>
-                    <th>Mobile</th>
-                    <th>Grade</th>
-                    <th>Status</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody id="club-apps">
+  <h2>Submitted Applications</h2>
 
-            </tbody>
-        </table>
+  <label>Filter by Club:
+    <select id="filterClub">
+      <option value="all">All Clubs</option>
+      <option value="pxgjpg.jpg">Paris X Gen</option>
+      <option value="ubers.jpg">Ubers</option>
+      <option value="manshine.jpg">Manshine City</option>
+      <option value="bastard.jpg">Bastard München</option>
+      <option value="barcha.jpg">FC Barcha</option>
+    </select>
+  </label>
 
-        <!-- LIST OF IDS, form, name, studentid, birthday, phone, grade, extern, intern, submit, clear -->
-</body>
+  <br><br>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Birthday</th>
+        <th>Phone</th>
+        <th>Grade</th>
+        <th>Status</th>
+        <th>Email</th>
+        <th>Club</th>
+      </tr>
+    </thead>
+    <tbody id="club-apps"></tbody>
+  </table>
+
+  <br>
+
+  <button onclick="clearData()">Clear All Applications</button>
+</main>
+    <footer>
+
+    <li style="text-decoration: none;"><a style="text-decoration: none;" href="index.html" aria-current="page" id="fix">Home!</a></li>
+    <p class="copyright">
+      &copy; <span id="year"></span> Carlessa Christiana. All rights reserved.
+    </p>
+  </footer>
+<script>
+const filterSelect = document.getElementById("filterClub");
+
+function loadTable() {
+  const apps = JSON.parse(localStorage.getItem("applications")) || [];
+  const tableBody = document.getElementById("club-apps");
+  tableBody.innerHTML = "";
+
+  const selectedClub = filterSelect.value;
+
+  const filteredApps = apps.filter(app =>
+    selectedClub === "all" || app.club === selectedClub
+  );
+
+  if (filteredApps.length === 0) {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td colspan="8" style="text-align:center; font-weight:bold;">
+        No sign-ups for this club yet.
+      </td>
+    `;
+    tableBody.appendChild(row);
+    return;
+  }
+
+  filteredApps.forEach(app => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${app.name}</td>
+      <td>${app.studentid}</td>
+      <td>${app.birthday}</td>
+      <td>${app.phone}</td>
+      <td>${app.grade}</td>
+      <td>${app.status}</td>
+      <td>${app.email}</td>
+      <td>${getClubName(app.club)}</td>
+    `;
+    tableBody.appendChild(row);
+  });
+}
+
+
+function getClubName(file) {
+  const clubs = {
+    "pxgjpg.jpg": "Paris X Gen",
+    "ubers.jpg": "Ubers",
+    "manshine.jpg": "Manshine City",
+    "bastard.jpg": "Bastard München",
+    "barcha.jpg": "FC Barcha"
+  };
+  return clubs[file] || file;
+}
+
+function clearData() {
+  localStorage.removeItem("applications");
+  loadTable();
+}
+
+filterSelect.addEventListener("change", loadTable);
+
+window.onload = loadTable;
+</script>
+
 </html>
