@@ -25,6 +25,7 @@
   <h2>Submitted Applications</h2>
 
   <label>Filter by Club:
+    <p id="count"></p>
     <select id="filterClub">
       <option value="all">All Clubs</option>
       <option value="pxgjpg.jpg">Paris X Gen</option>
@@ -67,16 +68,21 @@
 <script>
 const filterSelect = document.getElementById("filterClub");
 
+
+
 function loadTable() {
   const apps = JSON.parse(localStorage.getItem("applications")) || [];
   const tableBody = document.getElementById("club-apps");
   tableBody.innerHTML = "";
 
   const selectedClub = filterSelect.value;
+const filteredApps = apps.filter(app =>
+    selectedClub === "all" || app.club === selectedClub)
+  const count = document.getElementById("count");
+  count.textContent = `Total Applications: ${filteredApps.length}`;
 
-  const filteredApps = apps.filter(app =>
-    selectedClub === "all" || app.club === selectedClub
-  );
+  ;
+
 
   if (filteredApps.length === 0) {
     const row = document.createElement("tr");
