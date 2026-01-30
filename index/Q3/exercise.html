@@ -29,7 +29,7 @@
 <body>
   <nav aria-label="Main navigation">
     <h1>Carlessa Castaneda, 9-Sodium, SY 2025-2026</h1>
-
+    <li><a href="exercise2.html">Submissions</a></li>
   </nav>
   <main>
     <form id="myForm" method="post" action="submit" onsubmit="confirm('Are you sure you want to submit?')">
@@ -42,73 +42,73 @@
         <label>Student ID:
           <input required onblur="shake(this)" type="number" id="studentid" placeholder="Student ID">
         </label>
-        
+
         <br>
         <label>Birthday:
           <input required type="date" id="birthday" placeholder="Birthday">
         </label>
-        
+
         <br>
         <label>Email:
-           <input required onblur="shake(this)" type="text" id="email" placeholder="Email">
+          <input required onblur="shake(this)" type="text" id="email" placeholder="Email">
         </label>
-       
+
       </fieldset>
       <fieldset>
         <label>Phone Number:
           <input required onblur="shake(this)" type="text" id="phone" placeholder="Phone Number">
         </label>
-        
+
         <br>
         <label>Grade Level:
           <select required id="grade" name="Grade Level">
-          <option value="7">Grade 7</option>
-          <option value="8">Grade 8</option>
-          <option value="9">Grade 9</option>
-          <option value="10">Grade 10</option>
-          <option value="12">Grade 12</option>
-        </select>
+            <option value="7">Grade 7</option>
+            <option value="8">Grade 8</option>
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+            <option value="12">Grade 12</option>
+          </select>
         </label>
-        
+
         <br>
         <label> Status:
           <br>
-        <input name="stats" type="radio" id="extern" value="extern">
-        <label for="extern">Extern</label><br>
-        <input name="stats" type="radio" id="intern" value="intern">
-        <label for="intern">Intern</label><br>
+          <input name="stats" type="radio" id="extern" value="extern">
+          <label for="extern">Extern</label><br>
+          <input name="stats" type="radio" id="intern" value="intern">
+          <label for="intern">Intern</label><br>
         </label>
         <br>
 
-        
+
 
         <label>Select your club:
           <select required id="club" name="Club" onchange="img()">
-          <option value="pxgjpg.jpg">Paris X Gen</option>
-          <option value="ubers.jpg">Ubers</option>
-          <option value="manshine.jpg">Manshine City</option>
-          <option value="bastard.jpg">Bastard München</option>
-          <option value="barcha.jpg">FC Barcha</option>
-        </select>
-       </label>
+            <option value="pxgjpg.jpg">Paris X Gen</option>
+            <option value="ubers.jpg">Ubers</option>
+            <option value="manshine.jpg">Manshine City</option>
+            <option value="bastard.jpg">Bastard München</option>
+            <option value="barcha.jpg">FC Barcha</option>
+          </select>
+        </label>
 
-       <img id="club-img" src="" style="width: 95%; margin: auto;">
-       
+        <img id="club-img" src="" style="width: 95%; margin: auto;">
+
         <br>
         <label for="reason">Reason for Joining:
           <br>
-        <textarea required  onblur="shake(this)"  id="reason" name="reason" rows="4" cols="50"
-          placeholder="Why do you deserve to be in this Club?"></textarea>
-          </label>
+          <textarea required onblur="shake(this)" id="reason" name="reason" rows="4" cols="50"
+            placeholder="Why do you deserve to be in this Club?"></textarea>
+        </label>
         <br>
       </fieldset>
       <div class="buttons">
-      <button type="submit">Submit</button>
-      <button>Clear</button>
-</div>
+        <button type="submit" id="submit">Submit</button>
+        <button id="clear">Clear</button>
+      </div>
     </form>
   </main>
-  <!-- LIST OF IDS, form, name, studentid, birthday, phone, grade, extern, intern -->
+  <!-- LIST OF IDS, form, name, studentid, birthday, phone, grade, extern, intern, submit, clear -->
   <footer>
 
     <li><a href="index.html" aria-current="page" id="fix">Home!</a></li>
@@ -120,18 +120,58 @@
       // Auto-set current year
       document.getElementById('year').textContent = new Date().getFullYear();
 
-     function shake(input) {
-    if (input.value.trim() == "") {
-        input.classList.add("error");
-    } else {
-        input.classList.remove("error");
-    }
-  }
-    function img() {
-    const select = document.getElementById('club');
-    const img = document.getElementById('club-img');
-    img.src = select.value;
-}
+      function shake(input) {
+        if (input.value.trim() == "") {
+          input.classList.add("error");
+        } else {
+          input.classList.remove("error");
+        }
+      }
+      function img() {
+        const select = document.getElementById('club');
+        const img = document.getElementById('club-img');
+        img.src = select.value;
+      }
+
+      const clearButton = document.getElementById('clear');
+      clearButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        document.getElementById('myForm').reset();
+        document.getElementById('club-img').src = '';
+      });
+
+      var CLUB = localStorage.setItem('Club', document.getElementById('club').value);
+      var NAME = localStorage.setItem('Name', document.getElementById('name').value);
+      var ID = localStorage.setItem('StudentID', document.getElementById('studentid').value);
+      var BDAY = localStorage.setItem('Birthday', document.getElementById('birthday').value);
+      var EMAIL = localStorage.setItem('Email', document.getElementById('email').value);
+      var PHONE = localStorage.setItem('Phone', document.getElementById('phone').value);
+      var GRADE = localStorage.setItem('Grade', document.getElementById('grade').value);
+      var REASON = localStorage.setItem('Reason', document.getElementById('reason').value);
+      var STATUS = localStorage.setItem('Status', document.querySelector('input[name="stats"]:checked').value);
+
+      const form = document.getElementById('myForm');
+      form.addEventListener('submit', function (event) {
+        if (!confirm('Are you sure you want to submit?')) {
+          event.preventDefault();
+          return;
+        }
+
+        const data = {
+          name: document.getElementById('name').value,
+          studentid: document.getElementById('studentid').value,
+          birthday: document.getElementById('birthday').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          grade: document.getElementById('grade').value,
+          status: document.querySelector('input[name="stats"]:checked')?.value,
+          club: document.getElementById('club').value,
+          reason: document.getElementById('reason').value
+        };
+
+        localStorage.setItem("application", JSON.stringify(data));
+      });
+
 
     </script>
 

@@ -198,3 +198,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #fix {
     color: #ffffff;
 }   
+
+nav li a {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    color: #ffffff;
+}
