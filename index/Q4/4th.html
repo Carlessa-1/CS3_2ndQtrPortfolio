@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Encoding + mobile responsiveness -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Page info -->
+  <title>My Website</title>
+  <meta name="description" content="A simple Grade 9 template with favicon, meta tags, navigation, and footer.">
+  <meta name="author" content="Carlessa Christiana Castaneda">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="4th.css">
+  <link rel="icon" type="image/x-icon" href="favicon.jpg">
+
+  <!-- Nav bar-->
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Slackey&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav aria-label="Main navigation">
+    <h1>Carlessa Castaneda, 9-Sodium, SY 2025-2026</h1>
+    <h1 style="font-size: large; color: white;">Movie Rating</h1>
+      
+  </nav>
+  <main>
+
+    <h1>Add a movie!</h1>
+
+    <form id="myForm">
+
+<fieldset>
+    <label>Title:
+        <input required type="text" id="title">
+    </label>
+
+    <br>
+
+    <label>Year:
+        <input required type="number" id="year">
+    </label>
+
+    <br>
+
+    <label>Genre:
+        <select id="genre" required>
+          <option value="horror">Horror</option>
+          <option value="comedy">Comedy</option>
+          <option value="action">Action</option>
+          <option value="romance">Romance</option>
+          <option value="mystery">Mystery</option>
+          <option value="historical">Historical</option>
+        </select>
+      </label>
+      
+      <br>
+
+      <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="star-rating">
+  <span class="fa fa-star" data-value="1"></span>
+  <span class="fa fa-star" data-value="2"></span>
+  <span class="fa fa-star" data-value="3"></span>
+  <span class="fa fa-star" data-value="4"></span>
+  <span class="fa fa-star" data-value="5"></span>
+</div>
+
+<br>
+
+<button type="submit">Submit</button>
+  </fieldset>
+
+</form>
+<div id="movieList">
+<h1 id="movie"></h1>
+</div>
+  </main>
+
+  <footer>
+
+    <li><a href="index.html" aria-current="page">Home!</a></li>
+    <p class="copyright">
+      &copy; <span id="yur"></span> Carlessa Christiana. All rights reserved.
+    </p>
+
+    <script>
+      // Auto-set current year
+      document.getElementById('yur').textContent = new Date().getFullYear();
+
+      const stars = document.querySelectorAll(".star-rating .fa-star");
+let selectedRating = 0;
+
+// Hover effect
+stars.forEach(star => {
+  star.addEventListener("mouseover", () => {
+    stars.forEach(s => s.classList.remove("hovered"));
+    for (let i = 0; i < star.dataset.value; i++) {
+      stars[i].classList.add("hovered");
+    }
+  });
+
+  star.addEventListener("mouseout", () => {
+    stars.forEach(s => s.classList.remove("hovered"));
+  });
+
+  star.addEventListener("click", () => {
+    selectedRating = parseInt(star.dataset.value);
+    stars.forEach(s => s.classList.remove("selected"));
+    for (let i = 0; i < selectedRating; i++) {
+      stars[i].classList.add("selected");
+    }
+  });
+});
+
+      const title = document.getElementById('title');
+      const genre = document.getElementById('genre');
+      const year = document.getElementById('year');
+
+      myForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  if (!confirm("Submit application?")) return;
+
+
+  const data = {
+    title: title.value,
+    genre: genre.value,
+    year: year.value,
+    rating: selectedRating
+  };
+
+  const card = document.createElement("div");
+  card.classList.add("movieCard");
+
+  let tan = title.value;
+  let gan = genre.value;
+  let yan = year.value;
+
+  card.innerHTML = `
+    <h3>${tan}</h3>
+    <p>Year: ${yan}</p>
+    <p>Genre: ${gan}</p>
+  `;
+
+let ratingStars = "";
+for (let i = 1; i <= 5; i++) {
+  ratingStars += `<span class="fa fa-star ${i <= selectedRating ? 'selected' : ''}"></span>`;
+}
+
+card.innerHTML = `
+  <h3>${tan}</h3>
+  <p>Year: ${yan}</p>
+  <p>Genre: ${gan}</p>
+  <div class="star-rating">${ratingStars}</div>
+`;
+
+  movieList.appendChild(card);
+
+  let applications = JSON.parse(localStorage.getItem("applications")) || [];
+  applications.push(data);
+  localStorage.setItem("applications", JSON.stringify(applications));
+
+  alert("Application sent.");
+  myForm.reset();
+  clubImg.src = "";
+});
+
+    </script>
+
+ 
+
+  </footer>
+
+</body>
+
+</html>
