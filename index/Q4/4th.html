@@ -63,7 +63,10 @@
       </label>
       
       <br>
-
+<label>Cover Image:
+  <input type="file" id="cover" accept="image/*">
+</label>
+<br>
       <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -94,77 +97,59 @@
     </p>
 
     <script>
-      // Auto-set current year
-      document.getElementById('yur').textContent = new Date().getFullYear();
 
-      const stars = document.querySelectorAll(".star-rating .fa-star");
+document.getElementById('yur').textContent = new Date().getFullYear();
+
+
+const myForm = document.getElementById("myForm");
+const titleInput = document.getElementById("title");
+const genreInput = document.getElementById("genre");
+const yearInput = document.getElementById("year");
+const movieList = document.getElementById("movieList");
 let selectedRating = 0;
 
-// Hover effect
-stars.forEach(star => {
-  star.addEventListener("mouseover", () => {
-    stars.forEach(s => s.classList.remove("hovered"));
-    for (let i = 0; i < star.dataset.value; i++) {
-      stars[i].classList.add("hovered");
-    }
-  });
 
-  star.addEventListener("mouseout", () => {
-    stars.forEach(s => s.classList.remove("hovered"));
-  });
-
+const stars = document.querySelectorAll(".star-rating .fa-star");
+stars.forEach((star, index) => {
   star.addEventListener("click", () => {
-    selectedRating = parseInt(star.dataset.value);
-    stars.forEach(s => s.classList.remove("selected"));
-    for (let i = 0; i < selectedRating; i++) {
-      stars[i].classList.add("selected");
-    }
+    selectedRating = index + 1;
+    stars.forEach((s, i) => {
+      s.classList.toggle("selected", i < selectedRating);
+    });
   });
 });
 
-      const title = document.getElementById('title');
-      const genre = document.getElementById('genre');
-      const year = document.getElementById('year');
-
-      myForm.addEventListener("submit", function(e) {
+myForm.addEventListener("submit", function(e) {
   e.preventDefault();
-
   if (!confirm("Submit application?")) return;
 
+  const coverInput = document.getElementById("cover");
+  const file = coverInput.files[0];
 
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function() {
+      saveMovie(reader.result);
+    };
+    reader.readAsDataURL(file);
+  } else {
+    saveMovie(null); 
+  }
+});
+
+
+function saveMovie(imageData) {
   const data = {
-    title: title.value,
-    genre: genre.value,
-    year: year.value,
-    rating: selectedRating
+    title: titleInput.value,
+    genre: genreInput.value,
+    year: yearInput.value,
+    rating: selectedRating,
+    cover: imageData
   };
 
-  const card = document.createElement("div");
-  card.classList.add("movieCard");
-
-  let tan = title.value;
-  let gan = genre.value;
-  let yan = year.value;
-
-  card.innerHTML = `
-    <h3>${tan}</h3>
-    <p>Year: ${yan}</p>
-    <p>Genre: ${gan}</p>
-  `;
-
-let ratingStars = "";
-for (let i = 1; i <= 5; i++) {
-  ratingStars += `<span class="fa fa-star ${i <= selectedRating ? 'selected' : ''}"></span>`;
-}
-
-card.innerHTML = `
-  <h3>${tan}</h3>
-  <p>(${yan})</p>
-  <p>Genre: ${gan}</p>
-  <p>Rating: <div class="star-rating">${ratingStars}</div></p>
-`;
-
+  const card = createMovieCard(data);
   movieList.appendChild(card);
+
 
   let applications = JSON.parse(localStorage.getItem("applications")) || [];
   applications.push(data);
@@ -172,9 +157,38 @@ card.innerHTML = `
 
   alert("Application sent.");
   myForm.reset();
-  clubImg.src = "";
-});
+  selectedRating = 0;
+  stars.forEach(star => star.classList.remove("selected"));
+}
 
+
+function createMovieCard(app) {
+  const card = document.createElement("div");
+  card.classList.add("movieCard");
+
+  let ratingStars = "";
+  for (let i = 1; i <= 5; i++) {
+    ratingStars += `<span class="fa fa-star ${i <= app.rating ? 'selected' : ''}"></span>`;
+  }
+
+  card.innerHTML = `
+    ${app.cover ? `<img src="${app.cover}" alt="${app.title}" style="width:100%; border-radius:8px; margin-bottom:8px;">` : ''}
+    <h3>${app.title}</h3>
+    <p>(${app.year})</p>
+    <p>Genre: ${app.genre}</p>
+    <div class="star-rating">${ratingStars}</div>
+  `;
+  return card;
+}
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  const applications = JSON.parse(localStorage.getItem("applications")) || [];
+  applications.forEach(app => {
+    const card = createMovieCard(app);
+    movieList.appendChild(card);
+  });
+});
     </script>
 
  
