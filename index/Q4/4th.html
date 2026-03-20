@@ -177,10 +177,19 @@ function createMovieCard(app) {
     <p>(${app.year})</p>
     <p>Genre: ${app.genre}</p>
     <div class="star-rating">${ratingStars}</div>
+    <button onclick="deleteMovie(this)">Delete</button>
   `;
   return card;
 }
 
+function deleteMovie(button) {
+  const card = button.parentElement;
+  movieList.removeChild(card);
+
+  let applications = JSON.parse(localStorage.getItem("applications")) || [];
+  applications = applications.filter(app => app.title !== card.querySelector("h3").textContent);
+  localStorage.setItem("applications", JSON.stringify(applications));
+}
 
 window.addEventListener("DOMContentLoaded", () => {
   const applications = JSON.parse(localStorage.getItem("applications")) || [];
