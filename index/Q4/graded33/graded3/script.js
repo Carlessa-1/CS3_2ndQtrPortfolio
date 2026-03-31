@@ -1,4 +1,4 @@
-function plotPoint(x0, y0, x, y) {
+function plotPoint() {
     console.log(x0, y0, x, y) // checks the arguments passed to this function
     in1.innerHTML = x0 + " " + y0 + " " + x + " " + y;
     var point = document.createElement('div');  

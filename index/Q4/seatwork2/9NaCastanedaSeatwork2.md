@@ -175,3 +175,9 @@ An absolutely positioned element looks for the nearest positioned ancestor. That
 Sticky acts like relative until you scroll to a defined point, then it behaves like fixed. For example, a table header with position: sticky; top: 0 will scroll normally at first, then lock to the top of the viewport once it reaches the top edge.
 
     d. If you were designing a webpage for a school event, how might you use positioning to highlight important information? Please give concrete examples.
+
+Sticky - I could use the sticky position on the navbar of a webpage that could include sections for "Home", "Schedule", "Merch", and Register" page.
+
+Absolute -  Could be applied to labels/alerts on the corner of something, like if there was a merch section, there could be labels on the corners of each item (lets say each item is in a div) the labels could say "50% off" or "Brand New!"
+
+Fixed - Could be applied to a footer containing social media handles so it always stays in place even when scrolling.
